@@ -6,7 +6,7 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 17:09:18 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/02 16:10:19 by saljawab         ###   ########.fr       */
+/*   Updated: 2026/04/03 17:50:34 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	ft_print_comb(void)
 				write(1, &arr[0], 1);
 				write(1, &arr[1], 1);
 				write(1, &arr[2], 1);
-				write(1, " ", 1);
+				if (arr[0] != '7' || arr[1] != '8' || arr[2] != '9')
+				{
+					write(1, " ,", 2);
+				}
 				arr[2]++;
 			}
 			arr[1]++;
@@ -42,3 +45,4 @@ int main()
 	ft_print_comb();
 	return 0;
 }
+

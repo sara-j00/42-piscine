@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_put_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 16:59:06 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/03 17:51:37 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/03 18:20:48 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/03 18:28:39 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
-void	ft_put_nbr(int nb)
+void	ft_putstr(char *str)
 {
-	char	a;
+	int	i;
 
-	if (nb < 0)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, "-", 1);
-		nb = -nb;
+		write(1, &str[i], 1);
+		i++;
 	}
-	if (nb > 10)
-		ft_put_nbr(nb / 10);
-	a = nb % 10 + '0';
-	write(1, &a, 1);
 }
 /*
-int	main()
+int main ()
 {
-	ft_put_nbr(123532);
+	ft_putstr("abc");
 	return 0;
 }
 */

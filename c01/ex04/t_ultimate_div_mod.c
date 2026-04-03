@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   t_ultimate_div_mod.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 16:59:06 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/03 17:51:37 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/03 18:06:28 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/03 18:18:40 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
-void	ft_put_nbr(int nb)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	char	a;
+	int	div;
+	int	mod;
 
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-	}
-	if (nb > 10)
-		ft_put_nbr(nb / 10);
-	a = nb % 10 + '0';
-	write(1, &a, 1);
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }
-/*
-int	main()
-{
-	ft_put_nbr(123532);
-	return 0;
-}
-*/
