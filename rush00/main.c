@@ -1,11 +1,19 @@
-// Declares the prototype of the 'Rush' function
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/04 13:12:15 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/04 18:07:14 by saljawab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	rush(int x, int y);
 
 int	main(void)
 {
-    // Call the 'Rush' function
-    // the first number is the amount of columns
-    // the second number is the amount of lines
-	rush(5, 3);
+	rush(1, 5);
 	return (0);
 }

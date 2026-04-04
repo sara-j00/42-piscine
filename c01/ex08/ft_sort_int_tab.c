@@ -1,29 +1,30 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/04 13:10:16 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/04 13:10:32 by saljawab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	ft_sort_int_tab(int *tab, int size)
 {
-	int	arr[size];
-
 	int	i;
-	while(i < size)
+	int	j;
+	int	temp;
+
+	while (i < size)
 	{
-		int	j;
-		j = i;
-		while (j < size)
+		j = i + 1;
+		while (j < size - 1)
 		{
-			if (tab[i] < tab[j])
-				arr[i] = tab[i];
+			if (tab[i] > tab[j])
+				tab[i] = tab[i];
 			j++;
 		}
 		i++;
 	}
-}
-
-int main()
-{
-	int arr[8] = {2, 5, 6, 8, 1, 9, 11, 2};
-	int *ptr = arr;
-	ft_sort_int_tab(arr, 8);
-	for (int i=0; i<8; i++)
-		printf("%d", arr[i]);
-	return 0;
 }

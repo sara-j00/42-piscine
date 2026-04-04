@@ -19,9 +19,9 @@ int	ft_putstr(char *str)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
-	return i;
+	return (i);
 }
-
+/*
 int main ()
 {
 	char	a;
@@ -30,4 +30,4 @@ int main ()
 	
 	return 0;
 }
-
+*/

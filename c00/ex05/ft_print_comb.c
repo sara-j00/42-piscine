@@ -39,10 +39,10 @@ void	ft_print_comb(void)
 		arr[0]++;
 	}
 }
-
+/*
 int main()
 {
 	ft_print_comb();
 	return 0;
 }
-
+*/
