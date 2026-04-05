@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   t_ultimate_div_mod.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 18:40:41 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/03 18:44:09 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/03 18:06:28 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/03 18:18:40 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	int	i;
+	int	div;
+	int	mod;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return i;
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }
-/*
-int main ()
+
+int main()
 {
-	char	a;
-	a = ft_strlen("abc") + '0';
-	write(1, &a, 1);
-	
+	int a=39, b=5;
+	ft_ultimate_div_mod(&a, &b);
+	char c=a+'0', d=b+'0';
+	write(1, &c, 1);
+	write(1, &d, 1);
 	return 0;
 }
-*/
