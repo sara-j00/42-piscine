@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 18:08:05 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/06 19:28:16 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/06 18:41:48 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/06 19:29:14 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_lowercase(char *str)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (!(str[i] >= 97 && str[i] <= 122))
-			return (0);
-		i++;
+		if ((str[i] >= 'A' && str[i] <= 'Z'))
+			str[i] += 32;
 	}
-	return (1);
+	return (str);
 }

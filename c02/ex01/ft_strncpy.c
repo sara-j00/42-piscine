@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < n && src[i] != '\0')
@@ -31,8 +32,8 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 int main()
 {
 	char	*a = "abcefg";
-	char	b[7];
-        ft_strncpy(b, a, 7);
+	char	b[9];
+        ft_strncpy(b, a, 9);
 	
 	printf("%s\n",b);
 

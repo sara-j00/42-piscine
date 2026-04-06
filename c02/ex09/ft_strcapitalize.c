@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 18:08:05 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/06 19:28:16 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/06 18:46:06 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/06 19:59:58 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_lowercase(char *str)
+#include <stdio.h>
+char	*ft_strcapitalize(char *str)
 {
 	int	i;
 
 	i = 0;
+	if (str[i] >= 'a' && str[i] <= 'z')
+		str[i] += 32;
 	while (str[i])
 	{
-		if (!(str[i] >= 97 && str[i] <= 122))
-			return (0);
-		i++;
+		if (str[i] == ' ' || str[i] == '-' || str[i] == '+')
+		{
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i + 1] += 32;
+		}
 	}
-	return (1);
+	return (str);
+}
+int main()
+{
+	char *a = "hello l a-g t+v";
+	char *b[15] = ft_strcapitalize(a);
+	printf("%s", b);
+	return 0;
 }
