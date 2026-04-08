@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 14:28:12 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/08 14:30:50 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/08 14:36:09 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/08 16:46:12 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strncat(char *dest, char *src, unsigned int n)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	j = 0;
 	while (dest[i])
 		i++;
-	while (src[j])
+	while (src[j] && j < n)
 	{
 		dest[i] = src[j];
 		j++;
@@ -30,10 +30,10 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 /*
-int main ()
+int main()
 {
-	char	s1[43] = "abc";
-	char	s2[32] = "def";
-	printf("%s", ft_strcat(s1, s2));
+	char a[85] = "abcd";
+	char b[54] = "efghij";
+	printf("%s", ft_strncat(a, b, 5));
 	return 0;
 }*/

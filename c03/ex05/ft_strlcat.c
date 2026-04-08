@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 14:28:12 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/08 14:30:50 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/08 18:19:29 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/08 18:26:11 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-char	*ft_strcat(char *dest, char *src)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int	i;
-	int	j;
+	unsigned int i;
+	unsigned int j;
+	unsigned int len;
 
+	len = 0;
 	i = 0;
-	j = 0;
-	while (dest[i])
+	while (dest[i] != '\0')
 		i++;
+	len += i;
+	j = 0;
 	while (src[j])
 	{
-		dest[i] = src[j];
+		dest[i + j] = src[j];
+		len++;
 		j++;
-		i++;
 	}
-	dest[i] = 0;
-	return (dest);
+	return (len);
 }
-/*
-int main ()
-{
-	char	s1[43] = "abc";
-	char	s2[32] = "def";
-	printf("%s", ft_strcat(s1, s2));
-	return 0;
-}*/

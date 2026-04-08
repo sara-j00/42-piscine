@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/08 14:28:12 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/08 14:30:50 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/08 17:05:31 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/08 17:33:34 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
+	if (to_find[0] == 0)
+		return (str);
+	while (str[i])
 	{
-		dest[i] = src[j];
-		j++;
+		j = 0;
+		while (to_find[j] != '\0' && str[i + j] == to_find[j])
+		{
+			if (to_find[j + 1] == '\0')
+				return (&str[i]);
+			j++;
+		}
 		i++;
 	}
-	dest[i] = 0;
-	return (dest);
+	return (0);
 }
 /*
-int main ()
+int main()
 {
-	char	s1[43] = "abc";
-	char	s2[32] = "def";
-	printf("%s", ft_strcat(s1, s2));
+	char s[32] = "abcdefghijk";
+	char s2[21] = "hi";
+	printf("%s", ft_strstr(s, s2));
 	return 0;
 }*/
