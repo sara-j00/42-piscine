@@ -19,6 +19,7 @@ char	*ft_strupcase(char *str)
 	{
 		if ((str[i] >= 'A' && str[i] <= 'Z'))
 			str[i] += 32;
+		i++;
 	}
 	return (str);
 }

@@ -11,27 +11,48 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+int	check(char str)
+{
+	if (str >=32 && str <= 47)
+		return (1);
+	else if (str >= 58 && str <= 64)
+		return (1);
+	else if (str >= 91 && str <= 96)
+		return (1);
+	else if (str >= 123 && str <=126)
+		return (1);
+	return (0);
+}
 char	*ft_strcapitalize(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] >= 'a' && str[i] <= 'z')
-		str[i] += 32;
+	
 	while (str[i])
 	{
-		if (str[i] == ' ' || str[i] == '-' || str[i] == '+')
+		if (i == 0)
 		{
 			if (str[i] >= 'a' && str[i] <= 'z')
-				str[i + 1] += 32;
+				str[i] -= 32;
 		}
+		else if (check(str[i]))
+		{
+			if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+				str[i + 1] -= 32;
+			i++;
+		}
+		else
+			if (str[i] >= 'A' && str[i] <= 'Z')
+				str[i] += 32;
+		i++;
 	}
 	return (str);
 }
 int main()
 {
-	char *a = "hello l a-g t+v";
-	char *b[15] = ft_strcapitalize(a);
-	printf("%s", b);
+	char a[] = "hello l a-g t+v";
+	ft_strcapitalize(a);
+	printf("%s", a);
 	return 0;
 }
