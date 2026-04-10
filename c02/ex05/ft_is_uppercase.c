@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_uppercase(chat *str)
+int	ft_is_uppercase(char *str)
 {
 	int	i;
 
