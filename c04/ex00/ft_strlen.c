@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_uppercase.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 18:36:36 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/11 20:10:58 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/11 18:32:40 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/11 18:45:18 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+int	ft_strlen(char *str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (str[i])
-	{
-		if (!(str[i] >= 65 && str[i] <= 90))
-			return (0);
-		i++;
-	}
-	return (1);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
 /*
 int main()
 {
-	char a[55] = "ABCBDBS";
-	char b[34] = "ACVasiug";
-	printf("%d, %d", ft_is_uppercase(a), ft_is_uppercase(b));
+	printf("%d", ft_strlen("ADDSAF"));
 	return 0;
 }*/

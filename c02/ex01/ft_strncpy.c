@@ -6,11 +6,11 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 16:13:48 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/05 20:13:32 by saljawab         ###   ########.fr       */
+/*   Updated: 2026/04/11 20:04:29 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
@@ -28,7 +28,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	}
 	return (dest);
 }
-/*
+
 int main()
 {
 	char	*a = "abcefg";
@@ -38,4 +38,4 @@ int main()
 	printf("%s\n",b);
 
 	return 0;
-}*/
+}
