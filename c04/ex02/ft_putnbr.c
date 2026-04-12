@@ -20,5 +20,22 @@ void	ft_putnbr(int nb)
 	if (nb == -2147483648)
 		write(1, "-2147483648", 11);
 	i = 0;
-	while 
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = nb * -1;
+	}
+	while (nb > 0)
+	{
+		num[i] = (nb % 10) + '0';
+		nb /= 10;
+		i++;
+	}
+	while (--i > -1)
+		write(1, &num[i], 1);
+}
+int main()
+{
+	ft_putnbr(123456);
+	return 0;
 }

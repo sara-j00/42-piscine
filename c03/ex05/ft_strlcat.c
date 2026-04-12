@@ -12,21 +12,29 @@
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int len;
+	unsigned int	destlen;
+	unsigned int	srclen;
+	unsigned int	copyspace;
+	unsigned int	i;
 
-	len = 0;
+	destlen = 0;
+	while (destlen < size && dest[destlen])
+		destlen++;
+
+	srclen = 0;
+	while (src[srclen])
+		srclen++;
+	if (size == 0)
+		return (destlen + srclen);
+	if (destlen >= size)
+		return (destlen + srclen);
+	copyspace = size - destlen - 1;
 	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	len += i;
-	j = 0;
-	while (src[j])
+	while (src[i] && copyspace > 0)
 	{
-		dest[i + j] = src[j];
-		len++;
-		j++;
+		dest[destlen + i] = src[i++];
+		copyspace--;
 	}
-	return (len);
+	dest[destlen + i] = '\0';
+	return (destlen + srclen);
 }
