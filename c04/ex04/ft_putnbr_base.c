@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/05 16:13:48 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/11 20:04:29 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/12 12:47:11 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/12 15:00:38 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+void	ft_putchar(char a)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	write(1, &a, 1);
 }
-/*
-int main()
-{
-	char	*a = "abcefg";
-	char	b[9];
-        ft_strncpy(b, a, 9);
-	
-	printf("%s\n",b);
 
-	return 0;
-}*/
+void	ft_putnbr_base(int nbr, char *base)
+{
+	
+}

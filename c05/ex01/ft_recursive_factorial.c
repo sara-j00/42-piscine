@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/05 16:13:48 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/11 20:04:29 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/12 15:21:14 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/12 15:47:01 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+#include <stdio.h>
+int	ft_recursive_factorial(int nb)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	if (nb < 0)
+		return (0);
+	if (nb == 1)
+		return (1);
+	return (nb * ft_recursive_factorial(nb - 1));	
 }
-/*
 int main()
 {
-	char	*a = "abcefg";
-	char	b[9];
-        ft_strncpy(b, a, 9);
-	
-	printf("%s\n",b);
-
+	printf("%d", ft_recursive_factorial(5));
 	return 0;
-}*/
+}

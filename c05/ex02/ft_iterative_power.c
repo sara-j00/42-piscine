@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/05 16:13:48 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/11 20:04:29 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/12 15:48:08 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/12 16:27:16 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+#include <stdio.h>
+int	ft_iterative_power(int nb, int power)
 {
-	unsigned int	i;
+	int	i;
+	int	res;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	res = 1;
+	if (power < 0)
+		return (0);
+	if (nb == 0 && power == 0)
+		return (1);
+	if (power == 0)
+		return (0);
+	while (i++ < power)
+		res *= nb;
+	return (res);
 }
-/*
 int main()
 {
-	char	*a = "abcefg";
-	char	b[9];
-        ft_strncpy(b, a, 9);
-	
-	printf("%s\n",b);
-
+	printf("%d", ft_iterative_power(2,4));
 	return 0;
-}*/
+}

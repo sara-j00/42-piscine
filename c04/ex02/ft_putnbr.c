@@ -6,7 +6,7 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 18:45:44 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/11 18:58:35 by saljawab         ###   ########.fr       */
+/*   Updated: 2026/04/12 12:45:43 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ void	ft_putnbr(int nb)
 	while (--i > -1)
 		write(1, &num[i], 1);
 }
+/*
 int main()
 {
 	ft_putnbr(123456);
 	return 0;
-}
+}*/
