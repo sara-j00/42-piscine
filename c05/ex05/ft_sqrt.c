@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 12:47:11 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/12 15:00:38 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/13 12:22:54 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/13 14:10:03 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char a)
+#include<stdio.h>
+int	ft_sqrt(int nb)
 {
-	write(1, &a, 1);
-}
+	int	i;
 
-void	ft_putnbr_base(int nbr, char *base)
+	i = 0;
+	while (i++ < 50000)
+		if ((i * i) == nb)
+			return (i);
+	return (0);
+}
+int main()
 {
-	
+	printf("%d", ft_sqrt(400));
+	return (0);
 }

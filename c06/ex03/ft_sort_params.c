@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 15:48:08 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/12 16:27:16 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/14 18:38:00 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/14 19:09:00 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-int	ft_iterative_power(int nb, int power)
+void	ft_sort_int_tab(char *str1, char *str2)
 {
 	int	i;
-	int	res;
+	char	temp;
 
-	i = 0;
-	res = 1;
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	if (nb == 0)
-		return (0);
-	while (i++ < power)
-		res *= nb;
-	return (res);
+	i=0;
+	while(i < size)
+	{
+		int	j;
+		j = i;
+		while (j < size)
+		{
+			if (tab[i] > tab[j])
+			{
+				temp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
 }
-int main()
+int main(int argc, char **argv)
 {
-	printf("%d", ft_iterative_power(2,4));
-	return 0;
+
 }
