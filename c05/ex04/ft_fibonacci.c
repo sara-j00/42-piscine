@@ -16,7 +16,7 @@ int	ft_fibonacci(int index)
 	int	a;
 	int	b;
 
-	if (index == 0)
+	if (index == 0 || index < 0)
 		return (0);
 	if (index == 1)
 		return (1);
