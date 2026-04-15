@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 int	ft_fibonacci(int index)
 {
 	int	a;
 	int	b;
-	
+
 	if (index == 0)
 		return (0);
 	if (index == 1)
@@ -24,8 +24,9 @@ int	ft_fibonacci(int index)
 	b = ft_fibonacci(index - 2);
 	return (a + b);
 }
+/*
 int main()
 {
 	printf("%d", ft_fibonacci(6));
 	return 0;
-}
+}*/

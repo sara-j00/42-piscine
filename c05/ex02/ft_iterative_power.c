@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 int	ft_iterative_power(int nb, int power)
 {
 	int	i;
@@ -28,8 +28,9 @@ int	ft_iterative_power(int nb, int power)
 		res *= nb;
 	return (res);
 }
+/*
 int main()
 {
 	printf("%d", ft_iterative_power(2,4));
 	return 0;
-}
+}*/
