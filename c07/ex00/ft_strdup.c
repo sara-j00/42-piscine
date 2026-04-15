@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 13:19:19 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/14 14:14:53 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/15 16:44:19 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/15 17:31:13 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-int	ft_is_prime(int nb)
-{
-	int	i;
+#include <stdlib.h>
+#include <stdio.h>
 
-	if (nb <= 1)
-		return (0);
-	i = 2;
-	while (i <= nb / i)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-/*
-int main ()
+char	*ft_strdup(char *str)
 {
-	printf("%d \n", ft_is_prime(13));
-	printf("%d \n", ft_is_prime(12));
-        printf("%d \n", ft_is_prime(-2));
-        printf("%d \n", ft_is_prime(2));
-        printf("%d \n", ft_is_prime(157));
+	char	*copy;
+	int		len;
+	
+	len = 0;
+	while (str[len])
+		len++;
+	copy = malloc(sizeof(char) * (len + 1));
+	if (!copy)
+		return (NULL);
+	len = 0;
+	while (str[len])
+	{
+		copy[len] = str[len];
+		len++;
+	}
+	copy[len] = '\0';
+	return (copy);
+}
+
+int main()
+{
+	char *a = "sadfw";
+	char *b = ft_strdup(a);
+	printf("%s", b);
 	return 0;
-}*/
+}
