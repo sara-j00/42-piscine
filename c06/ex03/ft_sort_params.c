@@ -13,7 +13,6 @@
 void	ft_sort_int_tab(char *str1, char *str2)
 {
 	int	i;
-	char	temp;
 
 	i=0;
 	while(i < size)
