@@ -32,16 +32,9 @@ int	ft_find_next_prime(int nb)
 	if (ft_is_prime(nb))
 		return (nb);
 	else
-	{
 		while (1)
-		{
 			if (ft_is_prime(++nb))
-			{
 				return (nb);
-				break ;
-			}
-		}
-	}
 	return (0);
 }
 /*
