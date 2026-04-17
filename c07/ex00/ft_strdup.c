@@ -39,5 +39,6 @@ int main()
 	char *a = "sadfw";
 	char *b = ft_strdup(a);
 	printf("%s", b);
+	free(b);
 	return 0;
 }
