@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/18 13:04:42 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/18 15:58:41 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/18 16:35:01 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/18 16:35:57 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,41 +30,53 @@ struct s_dict_index  *find_key(char *key, struct s_dict_index **dict)
         return (0);
 }
 
-void    tens(char *num, struct s_dict_index **dict)
+void	tens(char *num, struct s_dict_index **dict)
 {
-        char    	tens_key[3];
-        char    	ones_key[2];
-        struct s_dict_index	*value;
+	char			tens_key[3];
+	char			ones_key[2];
+	struct s_dict_index	*entry;
 
-        if (num[0] == '\0')
-        {
-                ones_key[0] = num[0];
-                ones_key[1] = '\0';
+	// STEP 1: teens (10–19)
+	if (num[0] == '1')
+	{
+		char teen[3];
 
-                value = find_key(ones_key, dict);
-                if (!value)
-                        return;
-                write(1, value->value, value->value_len);
+		teen[0] = num[0];
+		teen[1] = num[1];
+		teen[2] = '\0';
+
+		entry = find_key(teen, dict);
+		if (!entry)
+			return;
+
+		write(1, entry->value, entry->value_len);
 		return;
-        }
+	}
 
+	// STEP 2: tens (20–90)
 	tens_key[0] = num[0];
-	tens_key[1] = num[1];
+	tens_key[1] = '0';
 	tens_key[2] = '\0';
-        
-        value = find_key(tens_key, dict);
-	if(!value)
+
+	entry = find_key(tens_key, dict);
+	if (!entry)
 		return;
-	write(1, value->value, value->value_len);
+
+	write(1, entry->value, entry->value_len);
+
+	// STEP 3: ones
 	if (num[1] != '0')
 	{
 		write(1, " ", 1);
+
 		ones_key[0] = num[1];
 		ones_key[1] = '\0';
-		value = find_key(ones_key, dict);
-		if (!value)
+
+		entry = find_key(ones_key, dict);
+		if (!entry)
 			return;
-		write(1, value->value, value->value_len);
+
+		write(1, entry->value, entry->value_len);
 	}
 }
 
