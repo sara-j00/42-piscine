@@ -6,7 +6,7 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 13:04:42 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/18 20:50:15 by selnaji          ###   ########.fr       */
+/*   Updated: 2026/04/18 21:00:12 by selnaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,10 @@
 
 #include "dict_index.h"
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n);
-int		ft_strlen(char *str);
-char	*make_zero_string(int diff);
-
-struct s_dict_index	*find_key(char *key, struct s_dict_index **dict)
-{
-	int	i;
-
-	i = 0;
-	while (dict[i])
-	{
-		if (ft_strlen(key) == dict[i]->key_len)
-			if (ft_strncmp(dict[i]->key, key, dict[i]->key_len) == 0)
-				return (dict[i]);
-		i++;
-	}
-	return (0);
-}
+int					ft_strncmp(char *s1, char *s2, unsigned int n);
+int					ft_strlen(char *str);
+char				*make_zero_string(int diff);
+struct s_dict_index	*find_key(char *key, struct s_dict_index **dict);
 
 void	ones(char *num, struct s_dict_index **dict, int end)
 {
@@ -108,9 +94,6 @@ void	hundreds(char *num, struct s_dict_index **dict, int end)
 
 int	call_digits(char *num, int len, int *ctr, struct s_dict_index **dict)
 {
-	int	diff;
-
-	diff = len - *ctr;
 	if (num[*ctr] == '0')
 	{
 		if (len == 1)
@@ -118,19 +101,19 @@ int	call_digits(char *num, int len, int *ctr, struct s_dict_index **dict)
 		(*ctr)++;
 		return (-1);
 	}
-	if (diff % 3 == 1)
+	if ((len - *ctr) % 3 == 1)
 	{
-		ones(num + *ctr, dict, (diff - 1) / 3);
+		ones(num + *ctr, dict, ((len - *ctr) - 1) / 3);
 		(*ctr)++;
 	}
-	else if (diff % 3 == 2)
+	else if ((len - *ctr) % 3 == 2)
 	{
-		tens(num + *ctr, dict, (diff - 1) / 3);
+		tens(num + *ctr, dict, ((len - *ctr) - 1) / 3);
 		*ctr += 2;
 	}
-	else if (diff % 3 == 0)
+	else if ((len - *ctr) % 3 == 0)
 	{
-		hundreds(num + *ctr, dict, (diff - 1) / 3);
+		hundreds(num + *ctr, dict, ((len - *ctr) - 1) / 3);
 		*ctr += 3;
 	}
 	return (0);
@@ -161,7 +144,6 @@ void	convert_num(char *num, struct s_dict_index **dict)
 		write(1, value->value, value->value_len);
 		write(1, " ", 1);
 		free(zero_count);
-		zero_count = NULL;
 	}
 	write(1, "\n", 1);
 }

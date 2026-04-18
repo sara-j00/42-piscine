@@ -6,7 +6,7 @@
 /*   By: selnaji <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 13:11:16 by selnaji           #+#    #+#             */
-/*   Updated: 2026/04/18 19:11:58 by selnaji          ###   ########.fr       */
+/*   Updated: 2026/04/18 21:01:39 by selnaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ char	*file_read(char *file_to_read)
 	return (ret);
 }
 
+int	end_input_read(int ctr)
+{
+	if (ctr == 0)
+		return (-5);
+	return (-2);
+}
+
 int	input_read(char **num)
 {
 	int				ret;
@@ -60,9 +67,7 @@ int	input_read(char **num)
 	if (is_valid_onearg(*num))
 		return (ret);
 	free(*num);
-	if (ctr == 0)
-		return (-5);
-	return (-2);
+	return (end_input_read(ctr));
 }
 
 void	delete_struct(struct s_dict_index *dict_index)

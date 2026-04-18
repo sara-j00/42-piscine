@@ -6,7 +6,7 @@
 /*   By: selnaji <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 18:18:23 by selnaji           #+#    #+#             */
-/*   Updated: 2026/04/18 20:08:26 by selnaji          ###   ########.fr       */
+/*   Updated: 2026/04/18 21:07:23 by selnaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,10 @@ int	main(int argc, char **argv)
 	convert_num(num, dict_indexes);
 	while (ret == 1)
 	{
-		ret = take_input(argc, argv, &file_to_read, &num);
-		if (ret < 0)
+		if (take_input(argc, argv, &file_to_read, &num) < 0)
 			break ;
 		convert_num(num, dict_indexes);
 	}
-	if (ret < 0 && ret != -5)
-		settle_error(ret);
 	delete_struct_array(&dict_indexes, 10000);
 	return (0);
 }

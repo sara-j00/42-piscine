@@ -6,7 +6,7 @@
 /*   By: selnaji <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 13:04:13 by selnaji           #+#    #+#             */
-/*   Updated: 2026/04/18 15:53:15 by selnaji          ###   ########.fr       */
+/*   Updated: 2026/04/18 21:20:30 by selnaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n);
 void	delete_struct_array(struct s_dict_index ***dict_indexes, int sz);
 int		ft_strlen(char *str);
 int		is_printable(char chr);
+int		is_digit(char ch);
 
 int	count_entries(char *dict_str)
 {
 	int	ret;
 
 	if (dict_str == NULL)
-		return (-1);
+		return (0);
 	ret = 0;
 	while (*dict_str)
 	{
@@ -45,14 +46,12 @@ char	*get_key(char **dict_str)
 	ctr = 0;
 	while ((*dict_str)[ctr] != ' ' && (*dict_str)[ctr] != ':')
 	{
-		if ((*dict_str)[ctr] < '0' && (*dict_str)[ctr] > '9')
+		if (is_digit((*dict_str)[ctr++]))
 			return (NULL);
-		ctr++;
 	}
 	ret = malloc((ctr + 1) * sizeof(char));
 	if (ctr == 0 || ret == NULL)
 		return (NULL);
-	ret[ctr] = '\0';
 	ft_strncpy(ret, *dict_str, ctr);
 	while (**dict_str >= '0' && **dict_str <= '9')
 		(*dict_str)++;
@@ -108,13 +107,12 @@ struct s_dict_index	*parse_line(char **dict_str)
 			return (NULL);
 	}
 	key = get_key(dict_str);
+	if (key == NULL)
+		return (NULL);
 	value = get_value(dict_str);
-	if (key == NULL || value == NULL)
+	if (value == NULL)
 	{
-		if (key != NULL)
-			free(key);
-		if (value != NULL)
-			free(value);
+		free(key);
 		return (NULL);
 	}
 	ret = malloc(sizeof(struct s_dict_index));
@@ -136,8 +134,6 @@ struct s_dict_index	**read_and_parse_dict(char *file_to_read)
 	struct s_dict_index	**dict_indexes;
 
 	dict_str = file_read(file_to_read);
-	if (dict_str == NULL)
-		return (NULL);
 	dict_str_start = dict_str;
 	entries = count_entries(dict_str);
 	dict_indexes = malloc((entries + 1) * sizeof(struct s_dict_index *));
@@ -148,13 +144,12 @@ struct s_dict_index	**read_and_parse_dict(char *file_to_read)
 	while (ctr < entries)
 	{
 		dict_indexes[ctr] = parse_line(&dict_str);
-		if (dict_indexes[ctr] == NULL)
+		if (dict_indexes[ctr++] == NULL)
 		{
 			free(dict_str_start);
-			delete_struct_array(&dict_indexes, ctr);
+			delete_struct_array(&dict_indexes, ctr - 1);
 			return (NULL);
 		}
-		ctr++;
 	}
 	free(dict_str_start);
 	return (dict_indexes);
