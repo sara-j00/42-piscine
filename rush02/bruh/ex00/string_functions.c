@@ -6,9 +6,18 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 13:17:56 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/18 14:25:14 by saljawab         ###   ########.fr       */
+/*   Updated: 2026/04/18 20:13:02 by selnaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
+
+int	is_printable(char ch)
+{
+	if (ch >= 32 && ch <= 126)
+		return (1);
+	return (0);
+}
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
@@ -60,4 +69,18 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		*it++ = '\0';
 	}
 	return (dest);
+}
+
+char	*make_zero_string(int diff)
+{
+	int		ctr;
+	char	*ret;
+
+	ret = malloc((diff + 1) * sizeof(char));
+	ret[diff] = 0;
+	ret[0] = '1';
+	ctr = 1;
+	while (ctr < diff)
+		ret[ctr++] = '0';
+	return (ret);
 }

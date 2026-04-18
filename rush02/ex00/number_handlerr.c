@@ -53,7 +53,7 @@ void    tens(char *num, struct s_dict_index **dict)
 	tens_key[2] = '\0';
         
         value = find_key(tens_key, dict);
-	if(!valu)
+	if(!value)
 		return;
 	write(1, value->value, value->value_len);
 	if (num[1] != '0')
@@ -64,7 +64,7 @@ void    tens(char *num, struct s_dict_index **dict)
 		value = find_key(ones_key, dict);
 		if (!value)
 			return;
-		write(1, value->value, value_>value_len);
+		write(1, value->value, value->value_len);
 	}
 }
 
