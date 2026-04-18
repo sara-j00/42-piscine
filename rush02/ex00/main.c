@@ -14,6 +14,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+void	convert_num(char *num, char *dict);
+
 char	*ft_strcpy(char *dest, char *src)
 {
 	char	*it;
@@ -46,10 +48,17 @@ int	main(int argc, char **argv)
 		free(file_to_read);
 		file_to_read = argv[1];
 	}
+	else
+	{
+		free(dict_str);
+		write(1, "Error\n", 6);
+		return (0) ;
+	}
 	file = open(file_to_read, O_RDONLY);
-	dict_str = malloc(1000);
+	dict_str = malloc(sizeof(int) * 1000);
+	if (!dict_str)
+		return (0);
 	read(file, dict_str, 1000);
-	printf("%s", dict_str);
-	free(dict_str);
+	convert_num(num, dict_str);
 	return (0);
 }
