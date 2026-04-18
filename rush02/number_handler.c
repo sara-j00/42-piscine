@@ -6,93 +6,67 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 13:04:42 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/18 14:58:44 by saljawab         ###   ########.fr       */
+/*   Updated: 2026/04/18 15:58:41 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "dict_index.h"
 
-s_dict  *find_key(char *key, s_dict ** dict)
+int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_strlen(char *str);
+
+struct s_dict_index  *find_key(char *key, struct s_dict_index **dict)
 {
         int     i;
-        int     comp;
 
         i = 0;
-        while (dict[i] != NULL)
+        while (dict[i])
         {
-                if (strncmp(dict[i]->key, key, dict[i].keylen) == 0)
+                if (ft_strncmp(dict[i]->key, key, dict[i]->key_len) == 0)
                        return (dict[i]);
                 i++;
         }
         return (0);
 }
 
-/*      while (struct dict[i].key != '\0')
-        {
-                comp = strncmp(key, dict[i]->key, dict[i]->keylen);
-                if (comp == 0)
-                {
-                        print_value(dict[i]->value);
-                        return (1);
-                }
-                i++;
-        }
-        return (-3);
-}*/
-
-
-void    tens(char *num, char *s_dict)
+void    tens(char *num, struct s_dict_index **dict)
 {
-
-        /*      dict    *key;
-
-        if (strlen(num) == 1)
-        {
-                key =  find_key(num, s_dict);
-                print_value(1, key, 
-        }
-        if (!key)
-        {
-                write(1, "Dict Error\n", 11);
-                return;
-        }*/
-
-        char    ten[3];
-        char    one[2];
-        s_dict          *key;
+        char    	tens_key[3];
+        char    	ones_key[2];
+        struct s_dict_index	*value;
 
         if (num[0] == '\0')
         {
-                one[0] = num[0];
-                one[1] = '\0';
+                ones_key[0] = num[0];
+                ones_key[1] = '\0';
 
-                key = find_key(key, dict);
-                if (!key)
+                value = find_key(ones_key, dict);
+                if (!value)
                         return;
-                write(1, key->value, key->value_len);
+                write(1, value->value, value->value_len);
+		return;
         }
 
-        if (num [1] == '\0')
-        {
-                write(1, " ",1);
-                tens[0] = num[1];
-        }
+	tens_key[0] = num[0];
+	tens_key[1] = num[1];
+	tens_key[2] = '\0';
+        
+        value = find_key(tens_key, dict);
+	if(!valu)
+		return;
+	write(1, value->value, value->value_len);
+	if (num[1] != '0')
+	{
+		write(1, " ", 1);
+		ones_key[0] = num[1];
+		ones_key[1] = '\0';
+		value = find_key(ones_key, dict);
+		if (!value)
+			return;
+		write(1, value->value, value_>value_len);
+	}
 }
-
-
-/*
-        c[0] = num[0];
-        c[1] = '0';
-        c[2] = '\0';
-        print_value(c, dict);
-        if (num[1] != '0')
-        {
-                c2[0] = num[1];
-                c2[1] = '\0';
-                write(1, " ", 1);
-                print_value(c2, dict);
-        }
-}*/
 
 void    print_value(char *str)
 {
@@ -106,15 +80,15 @@ void    print_value(char *str)
         }
 }
 
-void	convert_num(char *num, dict *dict)
+void	convert_num(char *num, struct s_dict_index **dict)
 {
 	int	len;
 
 	len = ft_strlen(num);
 	if (len == 1 || len == 2)
 		tens(num, dict);
-	else if (len == 3)
-		hundreds(num, dict);
-	else
-		big_numbers(num, ict);
+	//else if (len == 3)
+	//	hundreds(num, dict);
+	//else
+	//	big_numbers(num, ict);
 }
