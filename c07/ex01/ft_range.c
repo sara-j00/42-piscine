@@ -1,44 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 16:44:19 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/15 17:31:13 by saljawab         ###   ########.fr       */
+/*   Created: 2026/04/19 14:12:55 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/19 14:13:04 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-//#include <stdio.h>
 
-char	*ft_strdup(char *str)
+int	*ft_range(int min, int max)
 {
-	char	*copy;
-	int		len;
+	int	i;
+	int	*arr;
 
-	len = 0;
-	while (str[len])
-		len++;
-	copy = malloc(sizeof(char) * (len + 1));
-	if (!copy)
+	if (min >= max)
 		return (NULL);
-	len = 0;
-	while (str[len])
+	arr = malloc(sizeof(int) * (max - min));
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (min <= max)
 	{
-		copy[len] = str[len];
-		len++;
+		arr[i] = min;
+		min++;
+		i++;
 	}
-	copy[len] = '\0';
-	return (copy);
+	return (arr);
 }
 /*
 int main()
 {
-	char *a = "sadfw";
-	char *b = ft_strdup(a);
-	printf("%s", b);
-	free(b);
-	return 0;
+	int *arr;
+	arr = ft_range(1,4);
+	int i =0;
+	while (i < 4)
+	{
+		printf("%d, ", arr[i]);
+		i++;
+	}
+	free(arr);
 }*/
