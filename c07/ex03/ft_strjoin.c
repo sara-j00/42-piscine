@@ -6,7 +6,7 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 14:58:35 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/19 17:37:29 by saljawab         ###   ########.fr       */
+/*   Updated: 2026/04/20 19:53:00 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,32 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+int	calc_len(int size, char **strs, char *sep)
 {
-	int		len;
-	int		i;
-	char	*str;
+	int	i;
+	int	len;
 
-	len = 0;
 	i = 0;
-	if (size == 0)
-		return (NULL);
+	len = 0;
 	while (i++ < size)
 		len += ft_strlen(strs[i - 1]);
 	len += ft_strlen(sep) * (size - 1);
-	str = malloc(sizeof(char) * (len + 1));
+	return (len);
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	if (size == 0)
+	{
+		str = malloc(1);
+		str[0] = '\0';
+		return (str);
+	}
+	str = malloc(sizeof(char) * ((calc_len(size, strs, sep)) + 1));
 	if (!str)
 		return (NULL);
 	str[0] = '\0';
