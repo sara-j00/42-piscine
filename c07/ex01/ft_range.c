@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
+//#include <stdio.h>
 int	*ft_range(int min, int max)
 {
 	int	i;
@@ -23,7 +23,7 @@ int	*ft_range(int min, int max)
 	if (!arr)
 		return (NULL);
 	i = 0;
-	while (min <= max)
+	while (min < max)
 	{
 		arr[i] = min;
 		min++;
@@ -37,7 +37,7 @@ int main()
 	int *arr;
 	arr = ft_range(1,4);
 	int i =0;
-	while (i < 4)
+	while (i < 3)
 	{
 		printf("%d, ", arr[i]);
 		i++;
