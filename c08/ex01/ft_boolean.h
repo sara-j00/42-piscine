@@ -1,14 +1,26 @@
-#ifndef ft_boolean_h
-#define ft_boolean_h
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/22 12:16:47 by saljawab          #+#    #+#             */
+/*   Updated: 2026/04/22 12:30:41 by saljawab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#define TRUE 1
-#define FALSE 0
-#define SUCCESS 0
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-#define EVEN(nbr) ((nbr) % 2 == 0)
+# define TRUE 1
+# define FALSE 0
+# define SUCCESS 0
 
-#define EVEN_MSG "I have an even number of arguments.\n"
-#define ODD_MSG "I have an odd number of arguments.\n"
+# define EVEN(nbr) ((nbr) % 2 == 0)
 
-typedef int t_bool;
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+
+typedef int	t_bool;
 #endif
