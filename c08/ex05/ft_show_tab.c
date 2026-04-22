@@ -44,7 +44,6 @@ void	ft_put_nbr(int nb)
 		ft_put_nbr(nb / 10);
 	a = nb % 10 + '0';
 	write(1, &a, 1);
-	write(1, "\n", 1);
 }
 
 void	ft_show_tab(struct s_stock_str *arr)
@@ -52,11 +51,12 @@ void	ft_show_tab(struct s_stock_str *arr)
 	int	i;
 
 	i = 0;
-	while (str[i].copy)
+	while (arr[i].copy)
 	{
-		write_str(str[i].str);
-		ft_put_nbr(str[i].size);
-		write_str(str[i].copy);
+		write_str(arr[i].str);
+		ft_put_nbr(arr[i].size);
+		write(1, "\n", 1);
+		write_str(arr[i].copy);
 		i++;
 	}
 }

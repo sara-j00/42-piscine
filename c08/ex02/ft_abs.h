@@ -6,7 +6,7 @@
 /*   By: saljawab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:15:37 by saljawab          #+#    #+#             */
-/*   Updated: 2026/04/22 15:18:59 by saljawab         ###   ########.fr       */
+/*   Updated: 2026/04/22 16:49:16 by saljawab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # define FT_ABS_H
 
 # define ABS(Value)\
-       if (Value) < 0)\
-	Value = -Value;
+({ \
+ 	int _v = (Value);\
+	if (_v < 0)\
+		_v = -_v;\
+	_v;\
+})
 
 #endif
